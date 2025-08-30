@@ -31,52 +31,49 @@
     <h2 class="text-center">Chọn người chơi</h2>
     <div>
       <div class="flex items-center mt-4">
-        <input checked id="default-checkbox1" type="checkbox" value="dong"
+        <input checked id="default-checkbox1" type="checkbox" value="Đông"
           class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
         <label for="default-checkbox1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Đông</label>
       </div>
       <div class="flex items-center">
-        <input checked id="default-checkbox2" type="checkbox" value="khanh"
+        <input checked id="default-checkbox2" type="checkbox" value="Khánh"
           class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
         <label for="default-checkbox2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Khánh</label>
       </div>
       <div class="flex items-center">
-        <input id="default-checkbox3" type="checkbox" value="minh"
+        <input id="default-checkbox3" type="checkbox" value="Minh"
           class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
         <label for="default-checkbox3" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Minh</label>
       </div>
       <div class="flex items-center">
-        <input id="default-checkbox4" type="checkbox" value="hai"
+        <input id="default-checkbox4" type="checkbox" value="Hải"
           class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
         <label for="default-checkbox4" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hải</label>
       </div>
       <div class="flex items-center">
-        <input checked id="default-checkbox5" type="checkbox" value="tuan"
+        <input checked id="default-checkbox5" type="checkbox" value="Tuấn"
           class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
         <label for="default-checkbox5" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tuấn</label>
       </div>
       <div class="flex items-center">
-        <input id="default-checkbox6" type="checkbox" value="cukien"
+        <input id="default-checkbox6" type="checkbox" value="Cụ Kiên"
           class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
         <label for="default-checkbox6" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Cụ Kiên</label>
       </div>
       <div class="flex items-center">
-        <input id="default-checkbox7" type="checkbox" value="user1"
+        <input id="default-checkbox7" type="checkbox" value="Anonymous 1"
           class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-        <label for="default-checkbox7" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Anonymous
-          1</label>
+        <label for="default-checkbox7" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Anonymous 1</label>
       </div>
       <div class="flex items-center">
-        <input id="default-checkbox8" type="checkbox" value="user2"
+        <input id="default-checkbox8" type="checkbox" value="Anonymous 2"
           class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-        <label for="default-checkbox8" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Anonymous
-          2</label>
+        <label for="default-checkbox8" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Anonymous 2</label>
       </div>
       <div class="flex items-center">
-        <input id="default-checkbox9" type="checkbox" value="user3"
+        <input id="default-checkbox9" type="checkbox" value="Anonymous 3"
           class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-        <label for="default-checkbox9" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Anonymous
-          3</label>
+        <label for="default-checkbox9" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Anonymous 3</label>
       </div>
     </div>
    <div class="mt-3 flex justify-center">
@@ -194,7 +191,7 @@
       html += "</tr>";
 
       html += `<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"><td><b>Tổng</b></td>`;
-      players.forEach((p) => (html += `<td class="px-6 py-4"><b>${totals[p]}</b></td>`));
+      players.forEach((p) => (html += `<td class="px-6 py-4 ${totals[p] > 0 ? "text-green-400" : "text-red-400"}"><b>${totals[p]}</b></td>`));
 
       history.forEach((round, i) => {
         html += `<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"><td>${i + 1
