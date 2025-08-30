@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tính điểm bi-a lỗ đánh bài</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss"></style>
+  </head>
+  <body class="px-8 py-8">
+    <!-- Step 1: Chọn người chơi (GIỮ GIAO DIỆN CŨ) -->
+    <div id="step1" class="">
+      <h2>Chọn người chơi</h2>
+      <div>
+        <div class="flex items-center mt-4">
+          <input
+            id="default-checkbox"
+            type="checkbox"
+            value="dong"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="default-checkbox"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Đông</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            checked
+            id="checked-checkbox"
+            type="checkbox"
+            value="khanh"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="checked-checkbox"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Khánh</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            checked
+            id="checked-checkbox"
+            type="checkbox"
+            value="minh"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="checked-checkbox"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Minh</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            id="default-checkbox"
+            type="checkbox"
+            value="hai"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="default-checkbox"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Hai</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            checked
+            id="checked-checkbox"
+            type="checkbox"
+            value="tuan"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="checked-checkbox"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Tuấn</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            id="default-checkbox"
+            type="checkbox"
+            value="cukien"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="default-checkbox"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Cụ Kiên</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            checked
+            id="checked-checkbox"
+            type="checkbox"
+            value="user1"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="checked-checkbox"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Anonymous 1</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            id="default-checkbox"
+            type="checkbox"
+            value="user2"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="default-checkbox"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Anonymous 2</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            checked
+            id="checked-checkbox"
+            type="checkbox"
+            value="user3"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="checked-checkbox"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Anonymous 3</label
+          >
+        </div>
+      </div>
+      <button id="continueBtn" class="mt-3 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tiếp tục</button>
+    </div>
+
+    <!-- Step 2: Nhập kết quả (GIỮ GIAO DIỆN CŨ) -->
+    <div id="step2" class="hidden">
+      <h2>Kết quả ván chơi</h2>
+      <div id="playersArea"></div>
+      <button id="saveBtn" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Lưu</button>
+      <button id="resetBtn" class="ocus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Trận mới</button>
+
+      <h3>Lịch sử</h3>
+      <div id="history"></div>
+    </div>
+
+    <script>
+      let players = [];
+      let history = [];
+
+      function renderPlayers() {
+        const area = document.getElementById("playersArea");
+        area.innerHTML = "";
+        players.forEach((p, idx) => {
+          area.innerHTML += `
+        <div class="">
+          <strong>${p}</strong>
+         <div>
+         <div>
+             <div class="flex items-center mb-4">
+              <input id="default-radio-1" type="radio" name="winner" value="${idx}" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Thắng</label>
+          </div>
+          
+          </div>
+          </div>
+          <div class="">
+            <div>
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> &nbsp;Lá còn lại:</label>
+              <input type="number" id="remain_${idx}" min="0" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> &nbsp;Lỗ giữa:</label>  
+            <input type="number" id="mid_${idx}" min="0" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+             
+            <div>
+        </div>
+      `;
+        });
+      }
+
+      function renderHistory() {
+        if (history.length === 0) {
+          document.getElementById("history").innerHTML =
+            "<i>Chưa có dữ liệu</i>";
+          return;
+        }
+
+        // cộng dồn tổng theo người
+        let totals = {};
+        players.forEach((p) => (totals[p] = 0));
+
+        let html = `<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"><tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"><th>Ván</th>`;
+        players.forEach((p) => (html += `<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">${p}</th>`));
+        html += "</tr>";
+
+        history.forEach((round, i) => {
+          html += `<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"><td>${i + 1}</td>`;
+          players.forEach((p) => {
+            html += `<td class="px-6 py-4">${round[p]}</td>`;
+            totals[p] += round[p];
+          });
+          html += "</tr>";
+        });
+
+        html += `<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"><td class="px-6 py-4"><b>Tổng</b></td>`;
+        players.forEach((p) => (html += `<td><b>${totals[p]}</b></td>`));
+        html += "</tr></table>";
+
+        document.getElementById("history").innerHTML = html;
+      }
+
+      // Step1 -> Step2
+      document.getElementById("continueBtn").onclick = () => {
+        players = Array.from(
+          document.querySelectorAll("#step1 input:checked")
+        ).map((i) => i.value);
+        if (players.length < 1) {
+          alert("Chọn ít nhất 1 người chơi");
+          return;
+        }
+        history = [];
+        localStorage.setItem("players", JSON.stringify(players));
+        localStorage.setItem("history", JSON.stringify(history));
+        document.getElementById("step1").classList.add("hidden");
+        document.getElementById("step2").classList.remove("hidden");
+        renderPlayers();
+        renderHistory();
+      };
+
+      // SAVE 1 VÁN — công thức mới
+      document.getElementById("saveBtn").onclick = () => {
+        const winnerRadio = document.querySelector(
+          'input[name="winner"]:checked'
+        );
+        if (!winnerRadio) {
+          alert("Chọn người thắng");
+          return;
+        }
+
+        const n = players.length;
+        const wIdx = parseInt(winnerRadio.value, 10);
+
+        // thu thập remain/mid
+        const remain = [],
+          mid = [];
+        players.forEach((_, idx) => {
+          remain[idx] =
+            parseInt(document.getElementById("remain_" + idx).value) || 0;
+          mid[idx] = parseInt(document.getElementById("mid_" + idx).value) || 0;
+        });
+
+        // Σ remain của đối thủ cho người thắng
+        let sumLosersRemain = 0;
+        players.forEach((_, idx) => {
+          if (idx !== wIdx) sumLosersRemain += remain[idx];
+        });
+
+        // tổng mid toàn bàn
+        const sumAllMid = mid.reduce((a, b) => a + b, 0);
+
+        // điểm từng người theo công thức bạn yêu cầu
+        const round = {};
+        players.forEach((p, idx) => {
+          // phần lỗ giữa chung: + mid_i*(n-1) - Σ mid_đối_thủ
+          const midPart = mid[idx] * (n - 1) - (sumAllMid - mid[idx]);
+
+          // phần còn lại tùy thắng/thua
+          let score = midPart;
+          if (idx === wIdx) {
+            score += sumLosersRemain; // người thắng + tổng remain của đối thủ
+          } else {
+            score -= remain[idx]; // người thua - remain của mình
+          }
+          round[p] = score;
+        });
+
+        history.push(round);
+        localStorage.setItem("history", JSON.stringify(history));
+        renderHistory();
+      };
+
+      // RESET
+      document.getElementById("resetBtn").onclick = () => {
+        if (confirm("Bạn có chắc chắn muốn reset toàn bộ lịch sử?")) {
+          localStorage.removeItem("players");
+          localStorage.removeItem("history");
+          players = [];
+          history = [];
+          document.getElementById("step2").classList.add("hidden");
+          document.getElementById("step1").classList.remove("hidden");
+        }
+      };
+
+      // AUTO vào Step 2 nếu đã có dữ liệu local (GIỮ NGUYÊN UI)
+      window.onload = () => {
+        const savedPlayers = localStorage.getItem("players");
+        const savedHistory = localStorage.getItem("history");
+        if (savedPlayers) {
+          players = JSON.parse(savedPlayers);
+          history = savedHistory ? JSON.parse(savedHistory) : [];
+          document.getElementById("step1").classList.add("hidden");
+          document.getElementById("step2").classList.remove("hidden");
+          renderPlayers();
+          renderHistory();
+        }
+      };
+    </script>
+  </body>
+</html>
