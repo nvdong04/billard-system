@@ -5,6 +5,26 @@
   <meta charset="UTF-8" />
   <title>Tính điểm bi-a lỗ đánh bài</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Configure Tailwind before loading it (CDN runtime).
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = { darkMode: "class" };
+  </script>
+  <script>
+    // Apply theme ASAP to avoid a flash.
+    (function () {
+      try {
+        const stored = localStorage.getItem("theme"); // "light" | "dark"
+        const prefersDark =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = stored || (prefersDark ? "dark" : "light");
+        document.documentElement.classList.toggle("dark", theme === "dark");
+      } catch {
+        // If storage is blocked, fall back to system preference.
+      }
+    })();
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <style type="text/tailwindcss">
         @layer utilities {
@@ -20,12 +40,42 @@
       }
     }
   </style>
-  <style>/* Global CSS hoặc styles */
-</style>
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+  </style>
 </head>
 
-<body class="overflow-x-auto scrollbar-hidden">
+<body class="overflow-x-auto no-scrollbar bg-white text-gray-900 transition-colors duration-200 dark:bg-gray-950 dark:text-gray-100">
   <div class="main px-3 py-4">
+    <div class="flex items-center justify-end">
+      <button id="themeToggle" type="button"
+        class="inline-flex items-center justify-center rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-blue-200 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800 dark:focus:ring-blue-900"
+        aria-label="Đổi giao diện sáng/tối">
+        <!-- Moon icon (show in light mode) -->
+        <svg class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M21 14.3A8.3 8.3 0 0 1 9.7 3 7 7 0 1 0 21 14.3Z"
+            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <!-- Sun icon (show in dark mode) -->
+        <svg class="hidden h-5 w-5 dark:block" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"
+            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M12 2v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path d="M12 20v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path d="M4.93 4.93 6.34 6.34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path d="M17.66 17.66 19.07 19.07" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path d="M2 12h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path d="M20 12h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path d="M4.93 19.07 6.34 17.66" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path d="M17.66 6.34 19.07 4.93" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+        <span class="ml-2 hidden sm:inline">Theme</span>
+      </button>
+    </div>
     <!-- Step 1: Chọn người chơi (GIỮ GIAO DIỆN CŨ) -->
   <div id="step1">
     <h2 class="text-center">Chọn người chơi</h2>
@@ -140,7 +190,7 @@
   <div class="flex gap-4">
     <!-- Lá còn lại -->
     <div class="w-1/2">
-      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900 pl-1">
+      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100 pl-1">
         Lá còn lại:
       </label>
       <input 
@@ -153,7 +203,7 @@
 
     <!-- Lỗ giữa -->
     <div class="w-1/2">
-      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900 pl-1">
+      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100 pl-1">
         Lỗ giữa:
       </label>
       <input 
@@ -298,8 +348,24 @@
       }
     };
 
+    // Theme toggle (remembers override in localStorage).
+    (function () {
+      const btn = document.getElementById("themeToggle");
+      if (!btn) return;
+      btn.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.contains("dark");
+        const nextTheme = isDark ? "light" : "dark";
+        document.documentElement.classList.toggle("dark", nextTheme === "dark");
+        try {
+          localStorage.setItem("theme", nextTheme);
+        } catch {
+          // Ignore storage errors.
+        }
+      });
+    })();
+
     // AUTO vào Step 2 nếu đã có dữ liệu local (GIỮ NGUYÊN UI)
-    window.onload = () => {
+    window.addEventListener("load", () => {
       const savedPlayers = localStorage.getItem("players");
       const savedHistory = localStorage.getItem("history");
       if (savedPlayers) {
@@ -310,7 +376,7 @@
         renderPlayers();
         renderHistory();
       }
-    };
+    });
   </script>
 </body>
 </html>
